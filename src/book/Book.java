@@ -32,6 +32,13 @@ public class Book {
     return publishedYear;
   }
 
+  @Override
+  public String toString() {
+    return title;
+  }
+
+  
+
   // ! remove the setter methods, since that once the book created cannot 
   // ! change its name or title ....
 

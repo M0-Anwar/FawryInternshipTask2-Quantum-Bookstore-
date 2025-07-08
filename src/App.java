@@ -1,3 +1,5 @@
+import java.util.List;
+
 import book.Book;
 import book.EBook;
 import book.PaperBook;
@@ -59,7 +61,26 @@ public class App {
       System.out.println("==================================");
     }
 
+    // remove the book that published from more than 4 years
+    // at this point inventory have 5 different books
+    List<Book> removedBooks = bookStore.removeOutDatedBooks(4);
+    // at this point inventory should have 3 different books
 
+    System.out.println("The booked removed: ");
+    System.out.println(removedBooks);
+    System.out.println("==================================");
+
+
+    // try to buy on of the outDatedBooks after remove it
+    try {
+      // enter an isbn for book1 that is removed
+      String wrongIsbn = "9780136520238";
+      bookStore.buyBook(wrongIsbn, 1, "moanwer@gmail.com", "Earth-616");
+    } catch (CannotBuyBookException | BookNotFoundException | OutOfStockException e) {
+      e.printStackTrace();
+    } finally {
+      System.out.println("==================================");
+    }
   }
 
   private static void addToInverntory() {

@@ -39,6 +39,8 @@ public class BookStore {
       }
     }
 
+    outDatedBooks.forEach(book -> inventory.remove(book));
+
     return outDatedBooks;
   }
 
